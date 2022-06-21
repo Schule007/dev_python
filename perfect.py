@@ -9,13 +9,16 @@ N1, N2 = 0, 1
 COUNT = 0
 
 # check if the number of terms is valid
+
 if nterms <= 0:
     print("Please enter a positive integer")
 # if there is only one term, return n1
+
 elif nterms == 1:
     print("Fibonacci sequence upto",nterms,":")
     print(N1)
 # generate fibonacci sequence
+
 else:
     print("Fibonacci sequence:")
     while COUNT < nterms:
