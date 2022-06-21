@@ -1,0 +1,84 @@
+Part 1: Language construct.
+
+    Solve 10 problems using Python on leetcode.
+
+    https://leetcode.com/schul007/
+
+Part 2: Using Virtual Environment
+
+    Demonstrate the following steps:
+
+    - create a new virtual environment;
+      python3 -m venv vitual
+      
+    - activate it;
+      source python_env/bin/activate
+
+    - install `numpy, pandas, matplotlib`;
+      pip install numpy pandas matplotlib
+
+    - deactivate the virtual environment.
+      deactivate (or Ctrl+d)
+
+Part 3: Debugging
+
+    Demonstrate how you can use ipdb to inspect how pandas.DataFrame work.
+
+Part 4: Logging
+
+    Write a program that:
+        creates two loggers foo and foo.bar;
+    With the loggers:
+        write all log messages from both loggers to console;
+        Using foo.bar, write INFO and the above log messages to a file foo.bar.log;
+        Using foo, write DEBUG and the above log messages to a file foo.log`.
+
+    Files for this assignment can be found under docker-dev in this repo
+
+        import logging as lg
+
+        foo = lg.getLogger('foo')
+        foo.setLevel(lg.DEBUG)
+        foo.propagate = False
+
+        foo_bar = lg.getLogger('foo.bar')
+        foo_bar.setLevel(lg.DEBUG)
+        foo_bar.propagate = False
+
+        ch = lg.StreamHandler()
+
+        fh1 = lg.FileHandler('foo.log')
+        fh2 = lg.FileHandler('foo.bar.log')
+        fh2.setLevel(lg.INFO)
+
+        foo.addHandler(ch)
+        foo.addHandler(fh1)
+
+        foo_bar.addHandler(ch)
+        foo_bar.addHandler(fh2)
+
+        foo.debug('foo debug message')
+        foo.info('foo info message')
+        foo.warning('foo warn message')
+        foo.error('foo error message')
+        foo.critical('foo critical message')
+
+        foo_bar.debug('foo_bar debug message')
+        foo_bar.info('foo_bar info message')
+        foo_bar.warning('foo_bar warn message')
+        foo_bar.error('foo_bar error message')
+        foo_bar.critical('foo_bar critical message')
+
+
+Part 5: Code quality
+
+    Write a Python program that is at least 30 lines and show that it
+    passes both linting and static type check. Make sure that the program
+    is fully typed.
+
+    
+    ## Already in python virtual environment
+
+    Terminal Commands: 
+      pyflakes perfect.py
+      pylint perfect.py
